@@ -2,7 +2,7 @@
 
 This is repository for simple boilerplate for the the e-commerce site made in Golang, React, Next and Stripe.
 
-## Backed
+## Backend
 
 - Built in Go, version 1.17.5
 - Uses [docker images](https://docker.io)
