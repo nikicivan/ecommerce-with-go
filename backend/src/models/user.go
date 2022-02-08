@@ -3,12 +3,12 @@ package models
 import "golang.org/x/crypto/bcrypt"
 
 type User struct {
-	Id        uint
-	FirstName string
-	LastName  string
-	Email     string
-	Password  []byte
-	IsAdmin   bool
+	BaseModel
+	FirstName   string `json:"first_name"`
+	LastName    string `json:"last_name"`
+	Email       string `json:"email" gorm:"unique"`
+	Password    []byte `json:"-"`
+	IsAmbasador bool   `json:"-"`
 }
 
 // SetPassword generates hashed password for user

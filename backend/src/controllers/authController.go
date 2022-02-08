@@ -27,10 +27,10 @@ func Register(c *fiber.Ctx) error {
 	}
 
 	user := models.User{
-		FirstName: data["first_name"],
-		LastName:  data["last_name"],
-		Email:     data["email"],
-		IsAdmin:   false,
+		FirstName:   data["first_name"],
+		LastName:    data["last_name"],
+		Email:       data["email"],
+		IsAmbasador: false,
 	}
 
 	user.SetPassword(data["password"])
@@ -141,10 +141,11 @@ func UpdateUserInfo(c *fiber.Ctx) error {
 	id, _ := middlewares.GetUserId(c)
 
 	user := models.User{
-		Id:        id,
 		FirstName: data["first_name"],
 		LastName:  data["last_name"],
 	}
+
+	user.Id = id
 
 	database.DB.Model(models.User{}).Where("id = ?", id).Updates(&user)
 
@@ -168,9 +169,9 @@ func UpdatePassword(c *fiber.Ctx) error {
 
 	id, _ := middlewares.GetUserId(c)
 
-	user := models.User{
-		Id: id,
-	}
+	user := models.User{}
+
+	user.Id = id
 
 	user.SetPassword(data["password"])
 
