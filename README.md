@@ -23,10 +23,10 @@ This is repository for simple boilerplate for the the e-commerce site made in Go
 
 - to run functions in commands folder, to generates fake data, you have to exec backend image when docker is running and database is connected
 
-  cd backend from root folder
-  docker compose exec backend sh
-  go run src/commands/folder_name/file_name
+- cd backend from root folder
+- docker compose exec backend sh
+- go run src/commands/folder_name/file_name
 
-  Open postman and pick endpoint that you want to use
+- Open postman and pick endpoint that you want to use
 
-  If you want to stop docker images run docker composer down
+- If you want to stop docker images run docker composer down
